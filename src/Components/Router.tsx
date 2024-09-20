@@ -36,8 +36,6 @@ interface IRouter {
 }
 
 /**
- * 路由方法
- *
  * @author Aloento
  * @since 0.1.0
  * @version 1.0.0
@@ -45,7 +43,7 @@ interface IRouter {
 const Router = createContext({} as IRouter);
 
 /**
- * 上下文更新路由信息
+ * 引入上下文hook
  *
  * @author Aloento
  * @since 0.1.0
@@ -81,9 +79,9 @@ export function BrowserRouter({ children }: { children: ReactNode }): ReactNode 
     // 触发重新渲染
     setRouter({ ...router });
   }
-
-   * 刷新页面
-   * @param path
+  /*
+   * 更新路由信息
+   * @param path 待解析路径
    */
   function update(path: string) {
     router.Paths = path.split("/").filter(x => x);

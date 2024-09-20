@@ -1,6 +1,7 @@
 import { Button, FluentProvider, webLightTheme } from "@fluentui/react-components";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "./Components/Router";
+import { BaseKnock } from "~/Components/BaseKnock";
 import "./index.css";
 
 const container = document.querySelector("#root")!;
@@ -14,6 +15,9 @@ root.render(
 
         <Button>Click me</Button>
       </div>
+      <BaseKnock>
+      </BaseKnock>
+
     </BrowserRouter>
   </FluentProvider>
 );
