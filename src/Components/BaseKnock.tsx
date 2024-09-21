@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from 'react';
 
 export function BaseKnock() {
+    // 循环定时器Id
     const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
+    // 是否开启运行按钮
     const [isRunning, setIsRunning] = useState(false);
+    // bpm设定
     const [bpm, setBpm] = useState<number | null>(60);
+    // 拍数设定
     const [beat, setBeat] = useState<number | null>(0);
 
     const toggleTimer = () => {
         setIsRunning(!isRunning);
     };
 
+    // bpm转换为ms
     const bpmTranferMs = (bpm: number) => {
         return (1000 * 60) / bpm;
     };
@@ -17,7 +22,7 @@ export function BaseKnock() {
     // 当前拍计数器
     var currentBeat:number = 0;
 
-
+    // 发声
     const beep = (beatNum: number) => {
         const audioContext = new (window.AudioContext)();
         const oscillator = audioContext.createOscillator();
